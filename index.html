@@ -28,7 +28,7 @@
                 </div>
                 <div>
                     <h1 class="text-xl font-bold text-white">Mingle Financial & PM Complete Dashboard 2569</h1>
-                    <p class="text-xs text-slate-400">ระบบติดตามงบประมาณ ค่าใช้จ่าย และเนื้องาน PM ครบถ้วนทุกรายการตาม Excel</p>
+                    <p class="text-xs text-slate-400">ระบบติดตามงบประมาณ ค่าใช้จ่าย และเนื้องาน PM ครบถ้วนทุกรายการตาม Excel (ยอดอัปเดตล่าสุด)</p>
                 </div>
             </div>
 
@@ -76,7 +76,7 @@
                     <i data-lucide="credit-card" class="w-6 h-6"></i>
                 </div>
                 <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">ใช้ไปแล้วรวม</p>
-                <h3 class="text-2xl font-bold mt-2 text-amber-400" id="kpiUsed">3,881,118.22</h3>
+                <h3 class="text-2xl font-bold mt-2 text-amber-400" id="kpiUsed">4,244,808.22</h3>
                 <p class="text-xs text-slate-400 mt-2">สะสมผลงานจริง</p>
             </div>
 
@@ -85,7 +85,7 @@
                     <i data-lucide="calendar-clock" class="w-6 h-6"></i>
                 </div>
                 <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">ต้องใช้อีก (งบสำรอง)</p>
-                <h3 class="text-2xl font-bold mt-2 text-violet-400" id="kpiFuture">4,842,171.91</h3>
+                <h3 class="text-2xl font-bold mt-2 text-violet-400" id="kpiFuture">5,514,781.91</h3>
                 <p class="text-xs text-slate-400 mt-2">ประมาณการช่วงที่เหลือ</p>
             </div>
 
@@ -94,7 +94,7 @@
                     <i data-lucide="piggy-bank" class="w-6 h-6"></i>
                 </div>
                 <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">งบประมาณคงเหลือ</p>
-                <h3 class="text-2xl font-bold mt-2 text-emerald-400" id="kpiRemaining">6,002,535.99</h3>
+                <h3 class="text-2xl font-bold mt-2 text-emerald-400" id="kpiRemaining">6,753,935.99</h3>
                 <p class="text-xs text-emerald-400 mt-2">สุทธิหลังหักค่าใช้จ่าย</p>
             </div>
         </div>
@@ -199,14 +199,14 @@
 
     <!-- Footer -->
     <footer class="text-center py-6 text-xs text-slate-500">
-        Mingle Project Maintenance & Financial Dashboard 2569 &bull; ข้อมูลครบถ้วนสมบูรณ์ 100% ตามไฟล์ต้นฉบับ
+        Mingle Project Maintenance & Financial Dashboard 2569 &bull; ข้อมูลอัปเดตตรงตาม Excel 100%
     </footer>
 
     <!-- Script Logic -->
     <script>
         lucide.createIcons();
 
-        // Complete 100% Extracted Tasks Data from Excel
+        // Complete 100% Extracted Tasks Data with Corrected Grand Totals
         const projectsData = [
             {
                 name: "Mingle Hill",
@@ -326,26 +326,26 @@
                 name: "Mingle Market",
                 tasksCount: 16,
                 budget: 940000.00,
-                used: 0.00,
-                future: 0.00,
-                remaining: 34000.00,
+                used: 340290.00,
+                future: 542610.00,
+                remaining: 104000.00,
                 tasks: [
                     { name: "ค่าดูแลสวนต้นไม้", freq: "3 ครั้ง /ปี", budget: 30000, used: 0, status: "pending" },
                     { name: "งานจ้างล้างแอร์ Office", freq: "2 ครั้ง /ปี", budget: 4000, used: 0, status: "pending" },
                     { name: "งานทาสีจราจร ขอบฟุตบาท กระเบื้องเสื่อมสภาพ", freq: "1 ครั้ง /ปี", budget: 50000, used: 0, status: "pending" },
                     { name: "อุปกรณ์ซ่อมส่วนกลางและห้องน้ำ", freq: "4 ครั้ง /ปี", budget: 28000, used: 0, status: "pending" },
-                    { name: "ปรับปรุงห้องขยะ", freq: "1 ครั้ง /ปี", budget: 200000, used: 0, status: "pending" },
+                    { name: "ปรับปรุงห้องขยะ", freq: "1 ครั้ง /ปี", budget: 200000, used: 60000, status: "done" },
                     { name: "งานซ่อมอุปกรณ์และเติมน้ำยาถังดับเพลิง", freq: "2 ครั้ง /ปี", budget: 6000, used: 0, status: "pending" },
                     { name: "ซ่อมแซมปรับปรุงพื้นที่ขาย และเพิ่มไฟส่วนกลาง", freq: "3 ครั้ง /ปี", budget: 100000, used: 0, status: "pending" },
-                    { name: "งานสูบบ่อเกรอะและบ่อไขมันประจำเดือน 5 คิว", freq: "6 ครั้ง /ปี", budget: 60000, used: 0, status: "pending" },
-                    { name: "งานสูบบ่อเกรอะและบ่อไขมันประจำเดือน 1 คิว", freq: "6 ครั้ง /ปี", budget: 12000, used: 0, status: "pending" },
-                    { name: "งานสูบบ่อเกรอะและบ่อไขมันประจำเดือน 20 คิว", freq: "3 ครั้ง /ปี", budget: 90000, used: 0, status: "pending" },
+                    { name: "งานสูบบ่อเกรอะและบ่อไขมันประจำเดือน 5 คิว", freq: "6 ครั้ง /ปี", budget: 60000, used: 6500, status: "done" },
+                    { name: "งานสูบบ่อเกรอะและบ่อไขมันประจำเดือน 1 คิว", freq: "6 ครั้ง /ปี", budget: 12000, used: 1300, status: "done" },
+                    { name: "งานสูบบ่อเกรอะและบ่อไขมันประจำเดือน 20 คิว", freq: "3 ครั้ง /ปี", budget: 90000, used: 26000, status: "done" },
                     { name: "งาน PM ห้องควบคุมไฟฟ้า (PM.MDB)", freq: "1 ครั้ง /ปี", budget: 35000, used: 0, status: "pending" },
                     { name: "งานกล้องวงจรปิด", freq: "2 ครั้ง /ปี", budget: 60000, used: 0, status: "pending" },
-                    { name: "งาน PM ระบบน้ำดี", freq: "2 ครั้ง /ปี", budget: 40000, used: 0, status: "pending" },
+                    { name: "งาน PM ระบบน้ำดี", freq: "2 ครั้ง /ปี", budget: 40000, used: 181900, status: "done" },
                     { name: "งาน PM ระบบน้ำเสีย", freq: "1 ครั้ง /ปี", budget: 70000, used: 0, status: "pending" },
-                    { name: "งานจ้างทำความสะอาดและลอกท่อเมนทั้งโครงการ", freq: "3 ครั้ง /ปี", budget: 135000, used: 0, status: "pending" },
-                    { name: "กำจัดแมลง", freq: "ทุกเดือน", budget: 20000, used: 0, status: "pending" }
+                    { name: "งานจ้างทำความสะอาดและลอกท่อเมนทั้งโครงการ", freq: "3 ครั้ง /ปี", budget: 135000, used: 39590, status: "done" },
+                    { name: "กำจัดแมลง", freq: "ทุกเดือน", budget: 20000, used: 25000, status: "done" }
                 ]
             },
             {
@@ -373,9 +373,9 @@
                 name: "Sport Village",
                 tasksCount: 10,
                 budget: 546000.00,
-                used: 0.00,
-                future: 0.00,
-                remaining: 0.00,
+                used: 23400.00,
+                future: 20000.00,
+                remaining: 494400.00,
                 tasks: [
                     { name: "ค่าดูแลสวนต้นไม้", freq: "3 ครั้ง /ปี", budget: 30000, used: 0, status: "pending" },
                     { name: "งานปรับปรุงพื้นที่ขาย (สนามบาส/ฟุตซอล)", freq: "1 ครั้ง /ปี", budget: 200000, used: 0, status: "pending" },
@@ -383,7 +383,7 @@
                     { name: "งานจ้างล้างแอร์ Office", freq: "2 ครั้ง /ปี", budget: 2000, used: 0, status: "pending" },
                     { name: "อุปกรณ์ซ่อมส่วนกลางและห้องน้ำ", freq: "4 ครั้ง /ปี", budget: 28000, used: 0, status: "pending" },
                     { name: "งานซ่อมอุปกรณ์และเติมน้ำยาถังดับเพลิง", freq: "1 ครั้ง /ปี", budget: 6000, used: 0, status: "pending" },
-                    { name: "สูบบ่อเกรอะและบ่อไขมัน", freq: "2 ครั้ง /ปี", budget: 55000, used: 0, status: "pending" },
+                    { name: "สูบบ่อเกรอะและบ่อไขมัน", freq: "2 ครั้ง /ปี", budget: 55000, used: 23400, status: "done" },
                     { name: "งาน PM ห้องควบคุมไฟฟ้า (PM.MDB)", freq: "1 ครั้ง /ปี", budget: 35000, used: 0, status: "pending" },
                     { name: "งานจ้างทำความสะอาดและลอกท่อเมนทั้งโครงการ", freq: "1 ครั้ง /ปี", budget: 70000, used: 0, status: "pending" },
                     { name: "กำจัดแมลง", freq: "ทุกเดือน", budget: 20000, used: 0, status: "pending" }
@@ -394,8 +394,8 @@
                 tasksCount: 7,
                 budget: 297000.00,
                 used: 0.00,
-                future: 0.00,
-                remaining: 0.00,
+                future: 110000.00,
+                remaining: 187000.00,
                 tasks: [
                     { name: "ค่าดูแลสวนต้นไม้", freq: "1 ครั้ง /ปี", budget: 10000, used: 0, status: "pending" },
                     { name: "งานจ้างล้างแอร์ Office", freq: "2 ครั้ง /ปี", budget: 2000, used: 0, status: "pending" },
@@ -558,7 +558,7 @@
         });
 
         function showAlert() {
-            alert("คัดลอกลิงก์แดชบอร์ดเรียบร้อยแล้ว สามารถแชร์ให้ผู้บริหารตรวจสอบเนื้องาน PM ครบถ้วนได้ทันทีครับ!");
+            alert("คัดลอกลิงก์แดชบอร์ดเรียบร้อยแล้ว สามารถแชร์ให้ผู้บริหารตรวจสอบเนื้องาน PM ได้ทันทีครับ!");
         }
     </script>
 </body>
