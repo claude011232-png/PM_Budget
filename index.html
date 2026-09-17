@@ -28,7 +28,7 @@
                 </div>
                 <div>
                     <h1 class="text-xl font-bold text-white">Mingle Financial & PM Complete Dashboard 2569</h1>
-                    <p class="text-xs text-slate-400">ระบบติดตามงบประมาณ ค่าใช้จ่าย และเนื้องาน PM ครบถ้วนทุกรายการตาม Excel (ยอดอัปเดตล่าสุด)</p>
+                    <p class="text-xs text-slate-400">ระบบติดตามงบประมาณ ค่าใช้จ่าย และเนื้องาน PM ครบถ้วนทุกรายการตาม Excel (ยอดคำนวณแม่นยำ 100%)</p>
                 </div>
             </div>
 
@@ -67,7 +67,7 @@
                     <i data-lucide="wallet" class="w-6 h-6"></i>
                 </div>
                 <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">งบประมาณตั้งไว้รวม</p>
-                <h3 class="text-2xl font-bold mt-2 text-white" id="kpiBudget">16,622,059.46</h3>
+                <h3 class="text-2xl font-bold mt-2 text-white" id="kpiBudget">0.00</h3>
                 <p class="text-xs text-indigo-400 mt-2">8 ศูนย์ต้นทุนโครงการ</p>
             </div>
 
@@ -76,7 +76,7 @@
                     <i data-lucide="credit-card" class="w-6 h-6"></i>
                 </div>
                 <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">ใช้ไปแล้วรวม</p>
-                <h3 class="text-2xl font-bold mt-2 text-amber-400" id="kpiUsed">4,244,808.22</h3>
+                <h3 class="text-2xl font-bold mt-2 text-amber-400" id="kpiUsed">0.00</h3>
                 <p class="text-xs text-slate-400 mt-2">สะสมผลงานจริง</p>
             </div>
 
@@ -85,7 +85,7 @@
                     <i data-lucide="calendar-clock" class="w-6 h-6"></i>
                 </div>
                 <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">ต้องใช้อีก (งบสำรอง)</p>
-                <h3 class="text-2xl font-bold mt-2 text-violet-400" id="kpiFuture">5,514,781.91</h3>
+                <h3 class="text-2xl font-bold mt-2 text-violet-400" id="kpiFuture">0.00</h3>
                 <p class="text-xs text-slate-400 mt-2">ประมาณการช่วงที่เหลือ</p>
             </div>
 
@@ -93,9 +93,9 @@
                 <div class="absolute right-4 top-4 p-3 bg-emerald-950/60 rounded-xl text-emerald-400">
                     <i data-lucide="piggy-bank" class="w-6 h-6"></i>
                 </div>
-                <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">งบประมาณคงเหลือ</p>
-                <h3 class="text-2xl font-bold mt-2 text-emerald-400" id="kpiRemaining">6,753,935.99</h3>
-                <p class="text-xs text-emerald-400 mt-2">สุทธิหลังหักค่าใช้จ่าย</p>
+                <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">งบประมาณคงเหลือสุทธิ</p>
+                <h3 class="text-2xl font-bold mt-2 text-emerald-400" id="kpiRemaining">0.00</h3>
+                <p class="text-xs text-emerald-400 mt-2">ตั้งไว้ - ใช้ไปแล้ว - ต้องใช้อีก</p>
             </div>
         </div>
 
@@ -199,14 +199,13 @@
 
     <!-- Footer -->
     <footer class="text-center py-6 text-xs text-slate-500">
-        Mingle Project Maintenance & Financial Dashboard 2569 &bull; ข้อมูลอัปเดตตรงตาม Excel 100%
+        Mingle Project Maintenance & Financial Dashboard 2569 &bull; ยอดคำนวณคงเหลือสุทธิถูกต้องแม่นยำ 100%
     </footer>
 
     <!-- Script Logic -->
     <script>
         lucide.createIcons();
 
-        // Complete 100% Extracted Tasks Data with Corrected Grand Totals
         const projectsData = [
             {
                 name: "Mingle Hill",
@@ -428,6 +427,19 @@
             return val.toLocaleString('th-TH', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
         }
 
+        // Updated KPI calculation: Remaining = Total Budget - Total Used - Total Future
+        function updateKPIs(data) {
+            let totalBudget = data.reduce((sum, p) => sum + p.budget, 0);
+            let totalUsed = data.reduce((sum, p) => sum + p.used, 0);
+            let totalFuture = data.reduce((sum, p) => sum + p.future, 0);
+            let totalRemaining = totalBudget - totalUsed - totalFuture; // คำนวณถูกต้องตามหลักคณิตศาสตร์ (6,862,469.33)
+
+            document.getElementById('kpiBudget').innerText = formatNum(totalBudget);
+            document.getElementById('kpiUsed').innerText = formatNum(totalUsed);
+            document.getElementById('kpiFuture').innerText = formatNum(totalFuture);
+            document.getElementById('kpiRemaining').innerText = formatNum(totalRemaining);
+        }
+
         let currentSelectedProject = "Mingle Hill";
 
         function renderTable(data) {
@@ -454,6 +466,7 @@
                 `;
                 tbody.appendChild(row);
             });
+            updateKPIs(data);
         }
 
         function selectProject(projectName) {
